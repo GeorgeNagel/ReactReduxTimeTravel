@@ -7,7 +7,6 @@ var APP_DIR = path.resolve(__dirname, 'src/');
 var config = {
   entry: {
     'app': [
-      'react-hot-loader/patch',
       APP_DIR + '/index.js'
     ]
   },

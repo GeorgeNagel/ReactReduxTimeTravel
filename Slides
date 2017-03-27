@@ -1,0 +1,121 @@
+# make an empty project
+npm init -y
+
+# install webpack packages
+npm install --save-dev webpack webpack-dev-server
+
+# install react packages
+npm install --save react react-dom
+
+# install testing packages
+npm install --save-dev jest expect deep-freeze
+
+# hot-reloading packages
+npm install --save-dev react-hot-loader css-loader style-loader
+
+# redux packages
+npm install --save redux react-redux
+
+# JSX, ES6 transformers
+npm install --save babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-2
+
+
+# Create webpack config
+======================
+var webpack = require('webpack');
+var path = require('path');
+
+var BUILD_DIR = path.resolve(__dirname, 'build/');
+var APP_DIR = path.resolve(__dirname, 'src/');
+
+var config = {
+  entry: {
+    'app': [
+      APP_DIR + '/index.js'
+    ]
+  },
+  output: {
+    path: BUILD_DIR,
+    publicPath: "assets/",
+    filename: "bundle.js"
+  },
+  devtool: 'source-map',
+  module : {
+    loaders : [
+      {
+        test : /\.jsx?/,
+        include : APP_DIR,
+        loader : 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader'
+      }, {
+        test: /\.css$/,
+        loader: 'css-loader'
+      }
+    ]
+  }
+};
+
+module.exports = config;
+======================
+
+# In /build/index.html
+==========
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="assets/bundle.js"></script>
+  </body>
+</html>
+=========
+
+
+# Update package.json scripts
+  "scripts": {
+    "start": "webpack-dev-server --content-base build/ --inline --hot --host 0.0.0.0",
+    "test": "jest --watch"
+  },
+
+# In src/index.js
+=======
+import React, { Component } from 'react'
+import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
+
+class HelloMessage extends React.Component {
+  render() {
+    return React.createElement(
+      "div",
+      null,
+      "Hello ",
+      this.props.name
+    );
+  }
+}
+
+ReactDOM.render(
+  React.createElement(HelloMessage, { name: "Datto" }),
+  document.getElementById('root')
+);
+=========
+
+Change it to use jsx
+=====
+class HelloMessage extends React.Component {
+  render() {
+    return <div>Hello {this.props.name}</div>;
+  }
+}
+=====
+Add babelrc
+{
+  "presets" : ["es2015", "react", "stage-2"],
+}

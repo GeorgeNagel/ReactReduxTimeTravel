@@ -13,22 +13,42 @@ describe('undefined state', () => {
     let initialState = appState(undefined, action)
 
     expect(initialState).toEqual({
-      player1: {
-        icon: 'X',
-        name: 'Player 1',
-        score: 0
-      },
-      player2: {
-        icon: 'O',
-        name: 'Player 2',
-        score: 0
-      },
-      currentPlayer: 1,
+      players: [
+        {
+          icon: 'X',
+          name: 'Player 1',
+          score: 0
+        },
+        {
+          icon: 'O',
+          name: 'Player 2',
+          score: 0
+        }
+      ],
+      currentPlayer: 0,
       currentGrid: [
         [null, null, null],
         [null, null, null],
         [null, null, null]
       ]
     })
+  })
+})
+
+describe('bogus action', () => {
+  it('should return the original state', () => {
+    const bogusAction = {
+      type: 'BOGUS'
+    }
+    let initialState = {
+      players: 'foobar',
+      currentPlayer: 123,
+      currentGrid: 'barbaz'
+    }
+    deepFreeze(bogusAction)
+    deepFreeze(initialState)
+
+    let newState = appState(initialState, bogusAction)
+    expect(newState).toEqual(initialState)
   })
 })

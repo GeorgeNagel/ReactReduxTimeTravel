@@ -1,26 +1,13 @@
-const initialState = {
-  player1: {
-    icon: 'X',
-    name: 'Player 1',
-    score: 0
-  },
-  player2: {
-    icon: 'O',
-    name: 'Player 2',
-    score: 0
-  },
-  currentPlayer: 1,
-  currentGrid: [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null]
-  ]
-}
-const appState = (state = initialState, action) => {
-  switch (action.type) {
-    default:
-      return state
-  }
-}
+import {combineReducers} from "redux"
+
+import currentGrid from './currentGrid'
+import currentPlayer from './currentPlayer'
+import players from './players'
+
+const appState = combineReducers({
+  currentGrid,
+  currentPlayer,
+  players
+})
 
 export default appState

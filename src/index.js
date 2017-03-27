@@ -1,14 +1,38 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import { AppContainer } from 'react-hot-loader'
 import ReactDOM from 'react-dom'
 
-class HelloMessage extends React.Component {
-  render() {
-    return <div>Hello {this.props.name}</div>;
-  }
-}
+import appState from './reducers'
+import App from './components/App'
+
+let store = createStore(
+  appState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 ReactDOM.render(
-  React.createElement(HelloMessage, { name: "Datto" }),
+  <AppContainer>
+    <Provider store={store}>
+      <App/>
+    </Provider>
+  </AppContainer>,
   document.getElementById('root')
 );
+
+// Hot Module Replacement API
+if (module.hot) {
+  module.hot.accept('./components/App', () => {
+    const NextApp = require('./components/App').default;
+    ReactDOM.render(
+      <AppContainer>
+        <Provider store={store}>
+          <NextApp/>
+        </Provider>
+      </AppContainer>,
+      document.getElementById('root')
+    );
+  });
+}

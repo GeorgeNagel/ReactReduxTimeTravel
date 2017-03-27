@@ -1,4 +1,4 @@
-const initialState = {
+let initialState = {
   board: [
     [null, null, null],
     [null, null, null],

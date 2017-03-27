@@ -11,18 +11,18 @@ class Grid extends Component {
           <tbody>
             <tr>
               <GridCell row={0} column={0}/>
-              <td>{this.props.board[0][1]}</td>
-              <td>{this.props.board[0][2]}</td>
+              <GridCell row={0} column={1}/>
+              <GridCell row={0} column={2}/>
             </tr>
             <tr>
-              <td>{this.props.board[1][0]}</td>
-              <td>{this.props.board[1][1]}</td>
-              <td>{this.props.board[1][2]}</td>
+              <GridCell row={1} column={0}/>
+              <GridCell row={1} column={1}/>
+              <GridCell row={1} column={2}/>
             </tr>
             <tr>
-              <td>{this.props.board[2][0]}</td>
-              <td>{this.props.board[2][1]}</td>
-              <td>{this.props.board[2][2]}</td>
+              <GridCell row={2} column={0}/>
+              <GridCell row={2} column={1}/>
+              <GridCell row={2} column={2}/>
             </tr>
           </tbody>
         </table>

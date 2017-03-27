@@ -10,7 +10,7 @@ class Grid extends Component {
         <table>
           <tbody>
             <tr>
-              <GridCell row={0}/>
+              <GridCell row={0} column={0}/>
               <td>{this.props.board[0][1]}</td>
               <td>{this.props.board[0][2]}</td>
             </tr>

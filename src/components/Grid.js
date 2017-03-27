@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import GridCell from '../containers/GridCell'
+
 class Grid extends Component {
   render() {
     return(
@@ -8,7 +10,7 @@ class Grid extends Component {
         <table>
           <tbody>
             <tr>
-              <td>a{this.props.board[0][0]}</td>
+              <GridCell row={0}/>
               <td>{this.props.board[0][1]}</td>
               <td>{this.props.board[0][2]}</td>
             </tr>

@@ -4,9 +4,7 @@ import Grid from '../components/Grid'
 
 const mapStateToProps = (state) => {
   return {
-    board: state.gameBoard.board,
-    player1Token: state.players[0].token,
-    player2Token: state.players[1].token
+    board: state.gameBoard.board
   }
 }
 

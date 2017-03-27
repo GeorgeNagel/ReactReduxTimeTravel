@@ -25,12 +25,14 @@ describe('undefined state', () => {
           score: 0
         }
       ],
-      currentPlayer: 0,
-      currentGrid: [
-        [null, null, null],
-        [null, null, null],
-        [null, null, null]
-      ]
+      gameBoard: {
+        board: [
+          [null, null, null],
+          [null, null, null],
+          [null, null, null]
+        ],
+        currentPlayer: 0
+      }
     })
   })
 })
@@ -42,8 +44,7 @@ describe('bogus action', () => {
     }
     let initialState = {
       players: 'foobar',
-      currentPlayer: 123,
-      currentGrid: 'barbaz'
+      gameBoard: 'barbaz'
     }
     deepFreeze(bogusAction)
     deepFreeze(initialState)

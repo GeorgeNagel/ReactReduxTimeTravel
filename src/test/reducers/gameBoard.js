@@ -1,7 +1,7 @@
 import expect from 'expect'
 import deepFreeze from 'deep-freeze'
 
-import currentGrid from '../../reducers/currentGrid'
+import gameBoard from '../../reducers/gameBoard'
 
 describe('undefined state', () => {
   it('should return initial state', () => {
@@ -10,7 +10,7 @@ describe('undefined state', () => {
     }
     deepFreeze(action)
 
-    let initialState = currentGrid(undefined, action)
+    let initialState = gameBoard(undefined, action)
 
     expect(initialState).toEqual([
       [null, null, null],
@@ -31,7 +31,7 @@ describe('bogus action', () => {
     deepFreeze(bogusAction)
     deepFreeze(initialState)
 
-    let newState = currentGrid(initialState, bogusAction)
+    let newState = gameBoard(initialState, bogusAction)
     expect(newState).toEqual(initialState)
   })
 })

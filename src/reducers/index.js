@@ -1,12 +1,10 @@
 import {combineReducers} from "redux"
 
-import currentGrid from './currentGrid'
-import currentPlayer from './currentPlayer'
+import gameBoard from './gameBoard'
 import players from './players'
 
 const appState = combineReducers({
-  currentGrid,
-  currentPlayer,
+  gameBoard,
   players
 })
 

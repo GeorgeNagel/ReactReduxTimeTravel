@@ -6,7 +6,7 @@ class Grid extends Component {
   render() {
     return(
       <div>
-        <h3>Grid</h3>
+        <h3>{this.props.currentPlayerName}'s Turn!</h3>
         <table>
           <tbody>
             <tr>

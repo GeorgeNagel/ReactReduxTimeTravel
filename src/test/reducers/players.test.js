@@ -16,13 +16,11 @@ describe('undefined state', () => {
     expect(initialState).toEqual([
       {
         token: 'X',
-        name: 'Player 1',
-        score: 0
+        name: 'Player 1'
       },
       {
         token: 'O',
-        name: 'Player 2',
-        score: 0
+        name: 'Player 2'
       }
     ])
   })
@@ -50,13 +48,11 @@ describe('setPlayerName', () => {
     let initialState = [
       {
         token: 'X',
-        name: 'Player 1',
-        score: 0
+        name: 'Player 1'
       },
       {
         token: 'O',
-        name: 'Player 2',
-        score: 0
+        name: 'Player 2'
       }
     ]
     deepFreeze(action)
@@ -66,13 +62,11 @@ describe('setPlayerName', () => {
     expect(newState).toEqual([
       {
         token: 'X',
-        name: 'Charles',
-        score: 0
+        name: 'Charles'
       },
       {
         token: 'O',
-        name: 'Player 2',
-        score: 0
+        name: 'Player 2'
       }
     ])
   })
@@ -84,13 +78,11 @@ describe('setPlayerToken', () => {
     let initialState = [
       {
         token: 'X',
-        name: 'Player 1',
-        score: 0
+        name: 'Player 1'
       },
       {
         token: 'O',
-        name: 'Player 2',
-        score: 0
+        name: 'Player 2'
       }
     ]
     deepFreeze(action)
@@ -100,13 +92,11 @@ describe('setPlayerToken', () => {
     expect(newState).toEqual([
       {
         token: '∆',
-        name: 'Player 1',
-        score: 0
+        name: 'Player 1'
       },
       {
         token: 'O',
-        name: 'Player 2',
-        score: 0
+        name: 'Player 2'
       }
     ])
   })

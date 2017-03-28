@@ -16,13 +16,11 @@ describe('undefined state', () => {
       players: [
         {
           token: 'X',
-          name: 'Player 1',
-          score: 0
+          name: 'Player 1'
         },
         {
           token: 'O',
-          name: 'Player 2',
-          score: 0
+          name: 'Player 2'
         }
       ],
       gameBoard: {

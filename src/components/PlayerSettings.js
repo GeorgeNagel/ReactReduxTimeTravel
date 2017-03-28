@@ -3,15 +3,6 @@ import React, { Component } from 'react'
 import TextField from './TextField'
 
 class PlayerSettings extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: this.props.playerSettings[0].name};
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
   render() {
     return(
       <div>

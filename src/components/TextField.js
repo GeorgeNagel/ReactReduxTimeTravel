@@ -5,12 +5,6 @@ class TextField extends Component {
     this.props.onChange(event.target.value)
   }
   render() {
-    // constructor(props) {
-    //   super(props);
-    //   this.state = {value: this.props.value};
-
-    //   this.handleChange = this.handleChange.bind(this);
-    // }
     return (
       <span>
         <label htmlFor={this.props.name}>{this.props.label}</label>

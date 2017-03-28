@@ -1,12 +1,12 @@
 import React from 'react'
 import '../App.css'
 import CurrentGrid from '../containers/CurrentGrid'
-import PlayerSettings from './PlayerSettings'
+import CurrentPlayerSettings from '../containers/CurrentPlayerSettings'
 
 const App = () => (
   <div>
     <CurrentGrid />
-    <PlayerSettings />
+    <CurrentPlayerSettings />
   </div>
 )
 

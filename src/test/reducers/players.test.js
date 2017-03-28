@@ -2,6 +2,7 @@ import expect from 'expect'
 import deepFreeze from 'deep-freeze'
 
 import players from '../../reducers/players'
+import { setPlayerName, setPlayerToken } from '../../actions'
 
 describe('undefined state', () => {
   it('should return initial state', () => {
@@ -14,12 +15,12 @@ describe('undefined state', () => {
 
     expect(initialState).toEqual([
       {
-        icon: 'X',
+        token: 'X',
         name: 'Player 1',
         score: 0
       },
       {
-        icon: 'O',
+        token: 'O',
         name: 'Player 2',
         score: 0
       }
@@ -40,5 +41,73 @@ describe('bogus action', () => {
 
     let newState = players(initialState, bogusAction)
     expect(newState).toEqual(initialState)
+  })
+})
+
+describe('setPlayerName', () => {
+  it('should set the player name', () => {
+    const action = setPlayerName(0, 'Charles')
+    let initialState = [
+      {
+        token: 'X',
+        name: 'Player 1',
+        score: 0
+      },
+      {
+        token: 'O',
+        name: 'Player 2',
+        score: 0
+      }
+    ]
+    deepFreeze(action)
+    deepFreeze(initialState)
+
+    let newState = players(initialState, action)
+    expect(newState).toEqual([
+      {
+        token: 'X',
+        name: 'Charles',
+        score: 0
+      },
+      {
+        token: 'O',
+        name: 'Player 2',
+        score: 0
+      }
+    ])
+  })
+})
+
+describe('setPlayerToken', () => {
+  it('should set the player name', () => {
+    const action = setPlayerToken(0, '∆')
+    let initialState = [
+      {
+        token: 'X',
+        name: 'Player 1',
+        score: 0
+      },
+      {
+        token: 'O',
+        name: 'Player 2',
+        score: 0
+      }
+    ]
+    deepFreeze(action)
+    deepFreeze(initialState)
+
+    let newState = players(initialState, action)
+    expect(newState).toEqual([
+      {
+        token: '∆',
+        name: 'Player 1',
+        score: 0
+      },
+      {
+        token: 'O',
+        name: 'Player 2',
+        score: 0
+      }
+    ])
   })
 })

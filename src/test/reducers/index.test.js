@@ -15,12 +15,12 @@ describe('undefined state', () => {
     expect(initialState).toEqual({
       players: [
         {
-          icon: 'X',
+          token: 'X',
           name: 'Player 1',
           score: 0
         },
         {
-          icon: 'O',
+          token: 'O',
           name: 'Player 2',
           score: 0
         }

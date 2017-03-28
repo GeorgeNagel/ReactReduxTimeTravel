@@ -21,8 +21,8 @@ class GridCell extends Component {
 const mapStateToProps = (state) => {
   return {
     board: state.gameBoard.board,
-    player1Token: state.players[0].icon,
-    player2Token: state.players[1].icon
+    player1Token: state.players[0].token,
+    player2Token: state.players[1].token
   }
 }
 

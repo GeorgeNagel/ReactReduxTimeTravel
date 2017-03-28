@@ -6,7 +6,7 @@ class PlayerSettings extends Component {
   render() {
     return(
       <div>
-        <h3>PlayerSettings</h3>
+        <h3>Settings</h3>
         <div>
           <TextField label={"Player 1 Name"} name={"player1name"} value={this.props.playerSettings[0].name} onChange={this.props.updatePlayer1Name}/>
           <TextField label={"Player 1 Token"} name={"player1token"} value={this.props.playerSettings[0].token} onChange={this.props.updatePlayer1Token}/>
